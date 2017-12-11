@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Cat clicker</title>
+</head>
+<body>
+
+<ul id="cat-list"></ul>
+<div id="cat-details">
+	<h3 id="cat-name"></h3>
+	<img id="cat-image" src="" alt="No Image Available">
+	<h3> No of Clicks: </h3>
+    <p id="clicks-counter"></p>
+</div>
+<div id="admin-details">
+	<button id='admin'>Admin</button>
+	<form id="admin-form" action="" style="display:none;">
+		<br>Cat Name: <input id="input-catName" type="text" name="Cat Name" value="" autofocus required><br>
+		<br>Clicks: <input id="input-clicks" type="text" name="Clicks" value="" required><br>
+		<br><button id="submit" >Submit</button>
+		<button id="cancel" type="reset">Cancel</button>
+	</form>	
+</div>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.3.min.js"></script>
+<script src="js/cat.js"></script>
+</body>
+</html>
