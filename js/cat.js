@@ -75,13 +75,13 @@ var octopus = {
 	setEnteredCatDetails: function(inputCatName,inputClicks) {
 		console.log("setEnteredCatDetails");
 		model.currentCat.catName=inputCatName;
-		model.currentCat.clickCount=inputClicks;		
-	}
-	/*getEnteredCatDetails: function() {
+		model.currentCat.clickCount=inputClicks;			
+	},
+	getEnteredCatDetails: function() {
 		console.log("getEnteredCatDetails");
 		console.log(model.currentCat.catName,model.currentCat.clickCount);
 		return model.currentCat.catName,model.currentCat.clickCount;
-	}*/
+	}
 
 };
 
@@ -176,18 +176,16 @@ var adminView = {
 		this.formSubmit.addEventListener('click', (function(setEenteredCatName,setEnteredClicks) {
 			console.log("submitted");
 			event.preventDefault();
-
 			//store the input values from admin form (catName and Clicks)
 			this.enteredCatName = $('input[name="Cat Name"]').val();			
 			this.enteredClicks = $('input[name="Clicks"]').val();
-			console.log(this.enteredCatName,this.enteredClicks);			
+			console.log(this.enteredCatName,this.enteredClicks);					
+			octopus.setEnteredCatDetails(this.enteredCatName,this.enteredClicks);
+			catView.render();
+			octopus.formCancel();
+			      
 			
-			return function() {
-				//set the input values in octopus function				
-				octopus.setEnteredCatDetails(enteredCatName,enteredCatName);
-            };
-			
-		})(this.enteredCatName,this.enteredClicks));
+		}));
 
 		// on click, cancel/clear the admin form
 		this.formCancel.addEventListener('click', function() {
@@ -195,7 +193,7 @@ var adminView = {
 		});
 
 		// render this view (update the DOM elements with the right values)
-		//this.render();
+		this.render();
 	},
 	render: function(value) {
 		console.log("enetered render");
@@ -211,12 +209,7 @@ var adminView = {
         }
         //getAdminClicked=false;
         value = false;
-        //var enteredCatDetails = octopus.getEnteredCatDetails();
-        //console.log(enteredCatDetails.catName);
-		//this.name.textContent = enteredCatDetails.catName;
-		//this.noOfClicks.textContent = currentCatDetails.clickCount;
-    
-	}
+     }
 };    
   
 //Initiate octopus
